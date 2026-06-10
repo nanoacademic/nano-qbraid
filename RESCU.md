@@ -20,7 +20,7 @@ For many of the most interesting questions in materials science, size is not a d
 - **Magnetism and relativity:** spin-degenerate, collinear, and non-collinear spin calculations, with spin-orbit coupling.
 - **Pseudopotentials:** norm-conserving pseudopotentials, including Optimized Norm-Conserving Vanderbilt (ONCV) and Troullier-Martins constructions, with partial core corrections, supplied for LDA and GGA.
 - **Basis and solvers:** real-space grid discretization and numerical atomic orbitals, accelerated by Chebyshev-filtered subspace iteration for large systems.
-- **High-performance computing:** parallelized with MPI and OpenMP and built on optimized libraries (FFTW, ScaLAPACK). The most demanding linear-algebra steps of the self-consistent solver can be offloaded to NVIDIA GPUs via CUDA (CUBLAS and cuSPARSE), which is especially effective for large real-space calculations.
+- **High-performance computing:** parallelized with MPI and OpenMP and built on optimized libraries (FFTW, ScaLAPACK). 
 
 ## What you can compute
 
