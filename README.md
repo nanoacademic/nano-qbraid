@@ -1,36 +1,51 @@
-# Nanoacademic Atomistic Software in the Cloud
+<img src="images/logos/nanoacademic_horizontal_slogan_cmjn.svg" alt="Nanoacademic Logo" style="max-width: 500px;">
 
-Run Nanoacademic workflows inside qBraid Lab with a preconfigured environment for atomistic simulation, licensing, and AI-assisted development.
+**[Nanoacademic Technologies](https://www.nanoacademic.com/)** provides advanced simulation software that helps researchers and engineers model materials at the nanoscale with **[RESCU](#rescu)** 
+and **[NanoDCAL](#nanodcal)**.
 
-## What’s Included
+Built and continuously improved by our team of experts, our solutions combine high accuracy, strong performance, and an enhanced accessibility for users around the world. Whether you are exploring new materials, optimizing designs, or researching new technologies, Nanoacademic gives you the tools to move faster with confidence.
 
-- **RESCU**: atomistic simulation tools for scientific computing
-- **NanoDCAL**: electronic transport and nano-scale device simulation
-- **LatticeMind**: an AI coding agent for RESCU workflows
+<img src="images/logos/nanodcal_cmjn.svg" alt="NanoDCAL Logo" width="150"><img src="images/logos/spacer.svg" alt="" width="50" height="1"><img src="images/logos/rescu4_cmjn.svg" alt="RESCU Logo" width="150">
 
-## Access the Lab
+On this cloud platform, you can also take advantage of **[LatticeMind](#latticemind)**, our agentic artifical intelligence DFT simulation assistant, to streamline and pre-validate your simulation workflow and access the CPU/GPU power of qBraid Labs to further speed up your computations.
 
-The software is preinstalled in the qBraid on-demand labs dashboard.
+<img src="images/logos/latticemind_logo_vectorized_smooth_transparent.svg" alt="RESCU Logo" style="max-width: 150px;">
+
+*Soon available on qBraid Labs* → Our next-generation quantum design software for semiconductor spin qubits and superconducting circuits: **[QTCAD®](https://docs.nanoacademic.com/qtcad/)**
+
+<img src="images/logos/qtcad_cmjn.svg" alt="QTCAD Logo" style="max-width: 150px;">
+
+## Accessing the software
+
+The three softwares ([LatticeMind](#latticemind), [RESCU](#rescu), and [NanoDCAL](#nanodcal)), come pre-installed and available in the terminal of in the Nanoacademic qBraid Lab environment. The following steps will show you how to access the lab and setup the licenses required to use our software.
+
+Tutorials, examples and pseudo potentials are available in `$HOME/nanoacademic`. This folder is copied after the lab's creation from `/usr/local/share/nanoacademic`. If you accidentally alter or delete the `$HOME/nanoacademic` folder, you can always get a fresh copy from the source folder.
+
+### 1. Launch the Lab
+
+In [qBraid's dashboard](https://www.qbraid.com/), go to on-demand, then find and launch the Nanoacademic lab.
 
 ![qBraid dashboard](images/dashboard.png)
 
-### Bring Your Own License
 
-Before logging into Vault inside qBraid Lab, complete your Nanoacademic account setup:
+### 2. Bring Your Own License
+
+**NanoDCAL** and **Rescu** require you to have a valid license file imported in the lab. To proceed, you need to :
 
 1. Create an account at [portal.nanoacademic.com](https://portal.nanoacademic.com/).
-2. Activate the license for the products you need.
+2. Activate the license for the products you wish to use.
+3. You can import your license either through :
+    - A. [qBraid's Vault user interface in JupyterLab](#license-setup-in-qbraid-lab)
+    - B. Using the `nano-cli` command line tool directly available in your qBraid lab's terminal.
 
-You can import your license either through the Vault user interface in JupyterLab or from the JupyterLab terminal with `nano-cli`.
-
-### License setup in qBraid Lab
+#### License setup in qBraid Lab
 
 1. Launch the Nanoacademic environment from qBraid Lab.
 2. Open **Vault** from the profile menu.
 
 ![Open Vault](images/to-vault.png)
 
-3. Connect your Nanoacademic account.
+3. Connect your Nanoacademic account using your credentials.
 
 ![Connect Nanoacademic](images/vault1.png)
 
@@ -38,7 +53,33 @@ You can import your license either through the Vault user interface in JupyterLa
 
 ![Import licenses](images/license.png)
 
-## LatticeMind
+## RESCU
+
+<img src="images/logos/rescu4_cmjn.svg" alt="RESCU Logo" width="150">
+
+- Include aldi's materials
+- Include tutorials
+- The pseuso potentials are at
+
+RESCU is available for large-scale density functional theory simulations, with examples and licensing prepared in the qBraid Lab environment.
+
+## NanoDCAL
+
+<img src="images/logos/nanodcal_cmjn.svg" alt="NanoDCAL Logo" width="150">
+
+- Include aldi's materials
+- Include tutorials
+- The pseuso potentials are at
+
+NanoDCAL is available in the same workspace for nanoelectronics and transport simulations, with the runtime and licensing flow already prepared for qBraid Lab.
+
+## LatticeMind (TODO)
+
+<img src="images/logos/latticemind_logo_vectorized_smooth_transparent.svg" alt="RESCU Logo" style="max-width: 150px;">
+
+- [ ] Add Materials from Nate
+- Add logo
+- Open AI
 
 LatticeMind brings an AI-assisted workflow to RESCU development. It is designed to help with code exploration, iteration, and task automation inside the lab environment.
 
@@ -50,10 +91,6 @@ For LatticeMind, add an OpenAI API key in Vault and set `OPENAI_API_KEY`.
 
 ![OpenAI token](images/openai-token.png)
 
-## NanoDCAL
-
-NanoDCAL is available in the same workspace for nanoelectronics and transport simulations, with the runtime and licensing flow already prepared for qBraid Lab.
-
 ## Documentation
 
 - [qBraid Docs](https://docs.qbraid.com/)
@@ -63,4 +100,4 @@ NanoDCAL is available in the same workspace for nanoelectronics and transport si
 
 ## About Nanoacademic
 
-- [Nanoacademic](https://www.nanoacademic.com/)
+Learn more about us on our website at [https://www.nanoacademic.com/](https://www.nanoacademic.com/)
