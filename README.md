@@ -1,4 +1,4 @@
-<img src="images/logos/nanoacademic_horizontal_slogan_cmjn.svg" alt="Nanoacademic Logo" style="max-width: 500px;">
+# <img src="images/logos/nanoacademic_horizontal_slogan_cmjn.svg" alt="Nanoacademic Logo" width="350">
 
 **[Nanoacademic Technologies](https://www.nanoacademic.com/)** provides advanced simulation software that helps researchers and engineers model materials at the nanoscale with **[RESCU](#rescu)** 
 and **[NanoDCAL](#nanodcal)**.
@@ -9,15 +9,17 @@ Built and continuously improved by our team of experts, our solutions combine hi
 
 On this cloud platform, you can also take advantage of **[LatticeMind](#latticemind)**, our agentic artifical intelligence DFT simulation assistant, to streamline and pre-validate your simulation workflow and access the CPU/GPU power of qBraid Labs to further speed up your computations.
 
-<img src="images/logos/latticemind_logo_vectorized_smooth_transparent.svg" alt="RESCU Logo" style="max-width: 150px;">
+<img src="images/logos/latticemind_logo.svg" alt="LatticeMind Logo" width="150">
 
 *Soon available on qBraid Labs* → Our next-generation quantum design software for semiconductor spin qubits and superconducting circuits: **[QTCAD®](https://docs.nanoacademic.com/qtcad/)**
 
-<img src="images/logos/qtcad_cmjn.svg" alt="QTCAD Logo" style="max-width: 150px;">
+<img src="images/logos/qtcad_cmjn.svg" alt="QTCAD Logo" width="150">
+
+---
 
 ## Accessing the software
 
-The three softwares ([LatticeMind](#latticemind), [RESCU](#rescu), and [NanoDCAL](#nanodcal)), come pre-installed and available in the terminal of in the Nanoacademic qBraid Lab environment. The following steps will show you how to access the lab and setup the licenses required to use our software.
+The three softwares ([RESCU](#rescu), and [NanoDCAL](#nanodcal), [LatticeMind](#latticemind)), come pre-installed and available in the terminal of in the Nanoacademic qBraid Lab environment. The following steps will show you how to access the lab and setup the licenses required to use our software.
 
 Tutorials, examples and pseudo potentials are available in `$HOME/nanoacademic`. This folder is copied after the lab's creation from `/usr/local/share/nanoacademic`. If you accidentally alter or delete the `$HOME/nanoacademic` folder, you can always get a fresh copy from the source folder.
 
@@ -53,11 +55,12 @@ In [qBraid's dashboard](https://www.qbraid.com/), go to on-demand, then find and
 
 ![Import licenses](images/license.png)
 
-## RESCU
+---
+
+## <img src="images/logos/rescu4_cmjn.svg" alt="RESCU Logo" width="150"><a id="rescu"></a>
 
 Large-Scale Density Functional Theory
 
-<img src="images/logos/rescu4_cmjn.svg" alt="RESCU Logo" width="150">
 
 > A real-space Density Functional Theory (DFT) solver built to reach the length scales where realistic materials physics actually happens, from a single molecule to tens of thousands of atoms.
 
@@ -129,12 +132,11 @@ Going further, the advanced set covers bulk silicon basics, graphene PDOS, the e
 - Tutorial catalog: https://docs.nanoacademic.com/rescu/tutorials/basic_tutorials/basic_tutorials/
 - Nanoacademic Technologies: https://nanoacademic.com/
 
-
-## NanoDCAL
+---
+## <img src="images/logos/nanodcal_cmjn.svg" alt="NanoDCAL Logo" width="150"><a id="nanodcal"></a>
 
 Quantum Transport from First Principles
 
-<img src="images/logos/nanodcal_cmjn.svg" alt="NanoDCAL Logo" width="150">
 
 > A quantum transport simulator that predicts how electrons flow through a device, from a single molecule between two electrodes to a sub-nanometer transistor, directly from first principles.
 
@@ -204,15 +206,15 @@ The qBraid environment ships with the full set of official NanoDCAL tutorials as
 - Full tutorial catalog: https://docs.nanoacademic.com/nanodcal/tutorials/
 - Nanoacademic Technologies: https://nanoacademic.com/
 
-## LatticeMind (TODO)
+---
 
-<img src="images/logos/latticemind_logo.svg" alt="RESCU Logo" style="max-width: 150px;">
+## <img src="images/logos/latticemind_logo.svg" alt="RESCU Logo" style="max-width: 150px;"><a id="latticemind"></a>
 
+TODO: 
 - [ ] Add Materials from Nate
-- Add logo
-- Open AI
+- [ ] Test Open AI Token
 
-LatticeMind brings an AI-assisted workflow to RESCU development. It is designed to help with code exploration, iteration, and task automation inside the lab environment.
+LatticeMind brings an AI-assisted workflow to atomistic development. It is designed to help with code exploration, iteration, and task automation inside the lab environment.
 
 ![LatticeMind](images/latticemind.png)
 
@@ -221,6 +223,8 @@ For LatticeMind, add an OpenAI API key in Vault and set `OPENAI_API_KEY`.
 ![OpenAI API keys](images/api-keys.png)
 
 ![OpenAI token](images/openai-token.png)
+
+---
 
 ## Documentation
 
