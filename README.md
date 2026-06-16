@@ -208,21 +208,85 @@ The qBraid environment ships with the full set of official NanoDCAL tutorials as
 
 ---
 
-## <img src="images/logos/latticemind_logo.svg" alt="RESCU Logo" style="max-width: 150px;"><a id="latticemind"></a>
+## <img src="images/logos/latticemind_logo.svg" alt="LatticeMind Logo" style="max-width: 150px;"><a id="latticemind"></a>
 
-TODO: 
-- [ ] Add Materials from Nate
-- [ ] Test Open AI Token
+Agentic AI for First-Principles Simulation
 
-LatticeMind brings an AI-assisted workflow to atomistic development. It is designed to help with code exploration, iteration, and task automation inside the lab environment.
+
+> Describe the calculation you want in plain language, and LatticeMind designs, validates, and runs the workflow for you, turning a one-sentence request into solver-ready RESCU inputs and results.
+
+Welcome to LatticeMind on qBraid. LatticeMind is Nanoacademic's agentic AI assistant for atomistic simulation. It comes pre-installed in the Nanoacademic qBraid environment and can dispatch the RESCU calculations it builds to the CPU/GPU resources of qBraid Labs.
 
 ![LatticeMind](images/latticemind.png)
 
-For LatticeMind, add an OpenAI API key in Vault and set `OPENAI_API_KEY`.
+### Overview
+
+LatticeMind turns a natural-language request, such as "compute the band structure of zinc-blende GaAs" or "set up a DFPT phonon workflow for fcc aluminum", into a complete, physically consistent, ready-to-run simulation. It pairs a large language model with deterministic, physics-aware validation so that the workflows it produces are not merely plausible but correct and executable. Every structure and every input file is checked against known physics and RESCU's documented input format before any computing time is spent.
+
+The result is an assistant that handles the tedious, error-prone parts of DFT setup, choosing a sensible cell, wiring multi-step dependencies, picking pseudopotentials, and conforming to the input schema, while keeping you in control through explicit review, cost, and launch-approval steps.
+
+### Why it matters
+
+Configuring a first-principles calculation correctly takes expertise and care: the structure must be right, the workflow steps must hand off data in the correct order, the numerical settings must be converged, and every keyword must match the solver's exact format. A single mistake can waste hours of compute or, worse, produce a confidently wrong result. LatticeMind compresses that setup from hours to minutes and catches errors before submission, which lowers the barrier for newcomers while letting experienced users move much faster, without giving up oversight of the science.
+
+### What it can do
+
+- **Natural-language workflow design.** Go from a plain-English request to validated, solver-ready RESCU input decks for single or multi-step workflows.
+- **Built on RESCU.** LatticeMind targets the RESCU DFT solver today. Support for VASP and for quantum transport with NanoDCAL is in active development.
+- **Validation-gated execution.** A typed workflow contract enforces step dependencies (for example, reusing a saved density for DOS or band structure), and a pre-launch readiness and cost check runs before anything is submitted.
+- **Self-healing.** When a calculation or input fails, LatticeMind diagnoses the cause and repairs and reruns the affected step rather than starting over.
+- **Flexible execution.** Run locally, on a remote SSH workstation, or on a Slurm HPC cluster. On qBraid, dispatch to the lab's CPU/GPU resources.
+- **Durable projects.** Resume, fork, and continue past projects, with automatically generated reports of inputs, outputs, and figures.
+
+### What you can compute
+
+These are the RESCU workflow families LatticeMind builds today. Each one is
+exercised in our validation benchmark across a range of materials (covalent and
+ionic crystals, oxides, metals, and 2D/layered systems).
+
+| Category | What LatticeMind sets up |
+| --- | --- |
+| Total energy and SCF | Self-consistent ground state, total energy, and charge density |
+| Electronic band structure | Band structure along standard high-symmetry paths |
+| Density of states | Density of states (DOS) and projected DOS (PDOS) |
+| Convergence and equation of state | k-point convergence scans and equation-of-state / lattice-constant studies |
+| Structural relaxation | Geometry optimization |
+| Phonons | Γ-point DFPT phonon workflows |
+
+### How it works
+
+1. **Understand.** LatticeMind interprets your request and asks a clarifying question only when something essential is genuinely ambiguous.
+2. **Build the structure.** It sources or constructs the cell from authoritative data and verifies the geometry and composition.
+3. **Plan the workflow.** It lays out the calculation steps as a typed contract with explicit data hand-offs.
+4. **Generate and validate inputs.** It writes each input deck and checks it against the solver's documented format and physical sanity rules.
+5. **Preview and launch.** It estimates cost and readiness, shows you exactly what will run, and launches only after approval.
+6. **Post-process and report.** It extracts results, produces standard plots, and assembles a report.
+7. **Recover.** If a step fails, it diagnoses and repairs rather than failing silently.
+
+### Getting started on qBraid
+
+1. **Launch the environment.** Open the Nanoacademic environment on qBraid. LatticeMind is pre-installed, so there is nothing to set up.
+2. **Add your AI provider key.** Open **Vault**, add your OpenAI API key, and make sure `OPENAI_API_KEY` is set. (Claude, Gemini, Qwen, and local models are also supported; set `RESCU_LLM_PROVIDER` and the matching key to switch.)
 
 ![OpenAI API keys](images/api-keys.png)
 
 ![OpenAI token](images/openai-token.png)
+
+3. **Start LatticeMind.** In the terminal, run `latticemind` for the interactive assistant, or launch the web interface through the qBraid proxy:
+
+   ```bash
+   latticemind-web --host 0.0.0.0 --port 7865 --no-open
+   ```
+
+4. **Try a prompt:**
+
+   > Build a two-step silicon workflow: SCF with a saved density, then DOS from that density.
+
+   > Create a two-step zinc-blende GaAs workflow: SCF with a saved density, then a band structure along the standard FCC path.
+
+   > Set up a Γ-point DFPT phonon workflow for fcc aluminum: SCF, then the DFPT phonon step using the saved density.
+
+   Type `/examples` for more validated starter prompts, or `/commands` to explore everything LatticeMind can do.
 
 ---
 
