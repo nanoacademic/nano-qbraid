@@ -208,7 +208,7 @@ The qBraid environment ships with the full set of official NanoDCAL tutorials as
 
 ---
 
-## <img src="images/logos/latticemind_logo.svg" alt="LatticeMind Logo" style="max-width: 150px;"><a id="latticemind"></a>
+## <img src="images/logos/latticemind_logo.svg" alt="LatticeMind Logo" style="width: 150px;"><a id="latticemind"></a>
 
 Agentic AI for First-Principles Simulation
 
