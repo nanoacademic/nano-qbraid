@@ -206,7 +206,7 @@ The qBraid environment ships with the full set of official NanoDCAL tutorials as
 
 ## LatticeMind (TODO)
 
-<img src="images/logos/latticemind_logo_vectorized_smooth_transparent.svg" alt="RESCU Logo" style="max-width: 150px;">
+<img src="images/logos/latticemind_logo.svg" alt="RESCU Logo" style="max-width: 150px;">
 
 - [ ] Add Materials from Nate
 - Add logo
