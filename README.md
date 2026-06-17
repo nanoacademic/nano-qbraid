@@ -27,8 +27,7 @@ Tutorials, examples and pseudo potentials are available in `$HOME/nanoacademic`.
 
 In [qBraid's dashboard](https://www.qbraid.com/), go to on-demand, then find and launch the Nanoacademic lab.
 
-![qBraid dashboard](images/dashboard.png)
-
+<img src="images/dashboard.png" alt="qBraid dashboard" width="550">
 
 ### 2. Bring Your Own License
 
@@ -45,15 +44,15 @@ In [qBraid's dashboard](https://www.qbraid.com/), go to on-demand, then find and
 1. Launch the Nanoacademic environment from qBraid Lab.
 2. Open **Vault** from the profile menu.
 
-![Open Vault](images/to-vault.png)
+<img src="images/to-vault.png" alt="Open vault" width="550">
 
 3. Connect your Nanoacademic account using your credentials.
 
-![Connect Nanoacademic](images/vault1.png)
+<img src="images/vault1.png" alt="Connect Nanoacademic" width="550">
 
 4. Add or import the required licenses for RESCU and NanoDCAL.
 
-![Import licenses](images/license.png)
+<img src="images/license.png" alt="Import licenses" width="550">
 
 ---
 
@@ -230,8 +229,6 @@ Agentic AI for First-Principles Simulation
 
 Welcome to LatticeMind on qBraid. LatticeMind is Nanoacademic's agentic AI assistant for atomistic simulation. It comes pre-installed in the Nanoacademic qBraid environment and can dispatch the RESCU calculations it builds to the CPU/GPU resources of qBraid Labs.
 
-![LatticeMind](images/latticemind.png)
-
 ### Overview
 
 LatticeMind turns a natural-language request, such as "compute the band structure of zinc-blende GaAs" or "set up a DFPT phonon workflow for fcc aluminum", into a complete, physically consistent, ready-to-run simulation. It pairs a large language model with deterministic, physics-aware validation so that the workflows it produces are not merely plausible but correct and executable. Every structure and every input file is checked against known physics and RESCU's documented input format before any computing time is spent.
@@ -276,14 +273,14 @@ ionic crystals, oxides, metals, and 2D/layered systems).
 6. **Post-process and report.** It extracts results, produces standard plots, and assembles a report.
 7. **Recover.** If a step fails, it diagnoses and repairs rather than failing silently.
 
-### Getting started on qBraid
+### Setting up Latticemind on Nanoacademic's lab on QBraid platform
 
 1. **Launch the environment.** Open the Nanoacademic environment on qBraid. LatticeMind is pre-installed, so there is nothing to set up.
 2. **Add your AI provider key.** Open **Vault**, add your OpenAI API key, and make sure `OPENAI_API_KEY` is set. (Claude, Gemini, Qwen, and local models are also supported; set `RESCU_LLM_PROVIDER` and the matching key to switch.)
 
-![OpenAI API keys](images/api-keys.png)
+<img src="images/api-keys.png" alt="OpenAI API keys" width="550">
 
-![OpenAI token](images/openai-token.png)
+<img src="images/openai-token.png" alt="OpenAI Token" width="550">
 
 3. **Start LatticeMind.** In the terminal, run `latticemind` for the interactive assistant, or launch the web interface through the qBraid proxy:
 
