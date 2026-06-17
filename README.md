@@ -100,18 +100,31 @@ RESCU is built around favorable scaling rather than brute force. Using a real-sp
 
 ### Hands-on examples
 
-The qBraid environment ships with the full set of official RESCU tutorials as ready-to-run notebooks. The basic tutorials take you from convergence checks to your first analyses, while the advanced tutorials go further into electronic structure, defects, and doping. Each one is self-contained and annotated.
+The qBraid environment ships with the full set of official RESCU tutorials as ready-to-run notebooks. The tutorials take you from convergence checks to your first analyses, while the how-to guides go further into electronic structure, defects, and doping; the conceptual and reference material is gathered under Getting Started. Each one is self-contained and annotated.
 
-**Basic tutorials**
+**Tutorials**
 
-1. **Numerical convergence.** Check how the total energy and key quantities converge with the real-space grid, k-point sampling, and basis settings. *Key takeaway:* establishing converged, trustworthy parameters before any production run.
-2. **Equation of state and geometry optimization.** Relax the structure, fit the equation of state to obtain the equilibrium lattice constant and bulk modulus, and compute band offsets across an interface. *Key takeaway:* obtaining the ground-state geometry, the mechanical response, and interface band alignment.
-3. **Adsorption energy.** Compute the binding energy of an adsorbate on a surface. *Key takeaway:* quantifying surface-adsorbate interactions for catalysis and surface science.
-4. **STM simulations (Tersoff-Hamann).** Generate scanning tunneling microscopy images using the Tersoff-Hamann approximation. *Key takeaway:* connecting the calculated electronic structure directly to STM experiments.
+1. **Numerical convergence.** Check how the total energy and key quantities converge with the real-space grid, k-point sampling, and basis settings. *Start here:* it establishes trustworthy parameters before any production run.
+2. **Equation of state and geometry optimization.** Fit the equation of state to obtain the equilibrium lattice constant and bulk modulus, and relax the cell.
+3. **Structure relaxation.** Optimize the atomic positions to their equilibrium geometry.
+4. **Band structure.** Compute the electronic bands along high-symmetry paths and project them onto atomic-orbital characters.
+5. **Density of states.** Total, projected (PDOS), and local (LDOS) density of states.
+6. **Band unfolding.** Recover an effective primitive-cell band structure from a supercell calculation.
+7. **Mulliken charges.** Orbital-resolved population analysis.
+8. **Spin-DFT.** Collinear and non-collinear magnetism, with spin-orbit coupling.
+9. **DFT+U.** Correct on-site correlation for localized d and f states.
+10. **Hybrid functionals.** Exact-exchange and hybrid calculations for improved band gaps.
+11. **Berry curvature.** Geometric and topological properties of the band structure.
+12. **Wannier functions.** Maximally localized Wannier functions.
+13. **Phonons (finite displacement).** Vibrational spectra from frozen-phonon supercells.
+14. **Band offsets.** Valence- and conduction-band-edge alignment across an interface.
+15. **Adsorption energy.** Binding energy of an adsorbate on a surface.
+16. **STM simulations (Tersoff-Hamann).** Scanning tunneling microscopy images using the Tersoff-Hamann approximation.
+17. **STM simulations (Bardeen).** Scanning tunneling microscopy images using Bardeen's tunneling formalism.
 
-**Advanced tutorials**
+**How-To Guides**
 
-Going further, the advanced set covers bulk silicon basics, graphene PDOS, the equation of states and chemical potential, the valence band maximum, the dielectric constant, the diamond vacancy defect, and phosphorus doping in silicon, including impurity-state analysis of the P-in-Si donor.
+Going further, the how-to guides cover bulk silicon basics, graphene PDOS, the chemical potential, the valence band maximum, the dielectric constant, the diamond vacancy defect, phosphorus doping in silicon (including impurity-state analysis of the P-in-Si donor), and DFPT response properties.
 
 ### Getting started on qBraid
 
@@ -124,12 +137,12 @@ Going further, the advanced set covers bulk silicon basics, graphene PDOS, the e
 
 - **Convergence:** if the self-consistent loop struggles to converge, refine the real-space grid spacing and revisit the smearing and mixing parameters before changing anything else.
 - **Memory on large systems:** prefer the numerical atomic orbital basis for the largest structures, since it reduces the memory footprint substantially.
-- **Performance:** enable GPU acceleration where available, and scale the number of MPI processes to the size of the system.
+- **Performance:** scale the number of MPI processes to the size of the system.
 
 ### Documentation and resources
 
 - Official RESCU documentation: https://docs.nanoacademic.com/rescu/
-- Tutorial catalog: https://docs.nanoacademic.com/rescu/tutorials/basic_tutorials/basic_tutorials/
+- Tutorial catalog: https://docs.nanoacademic.com/rescu/tutorials/tutorials/
 - Nanoacademic Technologies: https://nanoacademic.com/
 
 ---
