@@ -288,6 +288,10 @@ ionic crystals, oxides, metals, and 2D/layered systems).
    latticemind-web --host 0.0.0.0 --port 7865 --no-open
    ```
 
+   Open the qBraid proxy URL with this form: `<notebook-base>/proxy/<port>/`. For the command above, the port is `7865`, so the URL should end with `/proxy/7865/`.
+
+   The final slash matters. If you open `<notebook-base>/proxy/7865` without the trailing `/`, the LatticeMind dashboard can appear as plain HTML instead of the styled web interface.
+
 4. **Try a prompt:**
 
    > Build a two-step silicon workflow: SCF with a saved density, then DOS from that density.
