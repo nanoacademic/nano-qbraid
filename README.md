@@ -1,58 +1,12 @@
 # <img src="images/logos/nanoacademic_horizontal_slogan_cmjn.svg" alt="Nanoacademic Logo" width="350">
 
-**[Nanoacademic Technologies](https://www.nanoacademic.com/)** provides advanced simulation software that helps researchers and engineers model materials at the nanoscale with **[RESCU](#rescu)** 
-and **[NanoDCAL](#nanodcal)**.
+**[Nanoacademic Technologies](https://www.nanoacademic.com/)** provides first-principles simulation tools for materials, nanoelectronics, and quantum-device research. This qBraid Lab image includes:
 
-Built and continuously improved by our team of experts, our solutions combine high accuracy, strong performance, and an enhanced accessibility for users around the world. Whether you are exploring new materials, optimizing designs, or researching new technologies, Nanoacademic gives you the tools to move faster with confidence.
+- **[RESCU](#rescu):** large-scale real-space density functional theory.
+- **[NanoDCAL](#nanodcal):** first-principles quantum transport with NEGF-DFT.
+- **[LatticeMind](#latticemind):** an agentic AI assistant for building and validating RESCU workflows.
 
-<img src="images/logos/nanodcal_cmjn.svg" alt="NanoDCAL Logo" width="150"><img src="images/logos/spacer.svg" alt="" width="50" height="1"><img src="images/logos/rescu4_cmjn.svg" alt="RESCU Logo" width="150">
-
-On this cloud platform, you can also take advantage of **[LatticeMind](#latticemind)**, our agentic artifical intelligence DFT simulation assistant, to streamline and pre-validate your simulation workflow and access the CPU/GPU power of qBraid Labs to further speed up your computations.
-
-<img src="images/logos/latticemind_logo.svg" alt="LatticeMind Logo" width="150">
-
-*Soon available on qBraid Labs* → Our next-generation quantum design software for semiconductor spin qubits and superconducting circuits: **[QTCAD®](https://docs.nanoacademic.com/qtcad/)**
-
-<img src="images/logos/qtcad_cmjn.svg" alt="QTCAD Logo" width="150">
-
----
-
-## Accessing the software
-
-The three softwares ([RESCU](#rescu), and [NanoDCAL](#nanodcal), [LatticeMind](#latticemind)), come pre-installed and available in the terminal of in the Nanoacademic qBraid Lab environment. The following steps will show you how to access the lab and setup the licenses required to use our software.
-
-Tutorials, examples and pseudo potentials are available in `$HOME/nanoacademic`. This folder is copied after the lab's creation from `/usr/local/share/nanoacademic`. If you accidentally alter or delete the `$HOME/nanoacademic` folder, you can always get a fresh copy from the source folder.
-
-### 1. Launch the Lab
-
-In [qBraid's dashboard](https://www.qbraid.com/), go to on-demand, then find and launch the Nanoacademic lab.
-
-<img src="images/dashboard.png" alt="qBraid dashboard" width="550">
-
-### 2. Bring Your Own License
-
-**NanoDCAL** and **Rescu** require you to have a valid license file imported in the lab. To proceed, you need to :
-
-1. Create an account at [portal.nanoacademic.com](https://portal.nanoacademic.com/).
-2. Activate the license for the products you wish to use.
-3. You can import your license either through :
-    - A. [qBraid's Vault user interface in JupyterLab](#license-setup-in-qbraid-lab)
-    - B. Using the `nano-cli` command line tool directly available in your qBraid lab's terminal.
-
-#### License setup in qBraid Lab
-
-1. Launch the Nanoacademic environment from qBraid Lab.
-2. Open **Vault** from the profile menu.
-
-<img src="images/to-vault.png" alt="Open vault" width="550">
-
-3. Connect your Nanoacademic account using your credentials.
-
-<img src="images/vault1.png" alt="Connect Nanoacademic" width="550">
-
-4. Add or import the required licenses for RESCU and NanoDCAL.
-
-<img src="images/license.png" alt="Import licenses" width="550">
+Lab launch and license setup are covered once in [Quick Start](#quick-start).
 
 ---
 
@@ -127,10 +81,11 @@ Going further, the how-to guides cover bulk silicon basics, graphene PDOS, the c
 
 ### Getting started on qBraid
 
-1. **Launch the environment.** Open the pre-configured environment on the qBraid platform: [Launch on qBraid](https://account.qbraid.com/?gitHubUrl=https://github.com/nanoacademic/nano-qbraid.git). No installation is required.
-2. **Open a notebook.** Start with the numerical convergence tutorial to confirm your setup and learn the input format.
-3. **Run and visualize.** Execute the cells to compute the band structure and DOS, then use the built-in DOS, PDOS, LDOS, and band-structure tools to inspect the results.
-4. **Make it yours.** Copy a notebook as a template, replace the structure, and adjust the functional, basis, and convergence settings to match your own system.
+After completing [Quick Start](#quick-start), use these RESCU-specific steps:
+
+1. **Open a notebook.** Start with the numerical convergence tutorial to confirm your setup and learn the input format.
+2. **Run and visualize.** Execute the cells to compute the band structure and DOS, then use the built-in DOS, PDOS, LDOS, and band-structure tools to inspect the results.
+3. **Make it yours.** Copy a notebook as a template, replace the structure, and adjust the functional, basis, and convergence settings to match your own system.
 
 ### Tips and troubleshooting
 
@@ -145,6 +100,7 @@ Going further, the how-to guides cover bulk silicon basics, graphene PDOS, the c
 - Nanoacademic Technologies: https://nanoacademic.com/
 
 ---
+
 ## <img src="images/logos/nanodcal_cmjn.svg" alt="NanoDCAL Logo" width="150"><a id="nanodcal"></a>
 
 Quantum Transport from First Principles
@@ -201,10 +157,11 @@ The qBraid environment ships with the full set of official NanoDCAL tutorials as
 
 ### Getting started on qBraid
 
-1. **Launch the environment.** Open the pre-configured environment on the qBraid platform: [Launch on qBraid](https://account.qbraid.com/?gitHubUrl=https://github.com/nanoacademic/nano-qbraid.git). No installation is required.
-2. **Start small.** Open a basic tutorial, such as a simple molecular device or the PtSe2 electronic-structure example, to become familiar with the two-probe setup and the input format.
-3. **Run the transport calculation.** Compute the self-consistent NEGF-DFT solution, then evaluate the transmission spectrum and the current-voltage characteristics.
-4. **Make it yours.** Use an example as a template, substitute your structure and electrodes, and extend the analysis to spin, gating, or thermoelectric properties as needed.
+After completing [Quick Start](#quick-start), use these NanoDCAL-specific steps:
+
+1. **Start small.** Open a basic tutorial, such as a simple molecular device or the PtSe2 electronic-structure example, to become familiar with the two-probe setup and the input format.
+2. **Run the transport calculation.** Compute the self-consistent NEGF-DFT solution, then evaluate the transmission spectrum and the current-voltage characteristics.
+3. **Make it yours.** Use an example as a template, substitute your structure and electrodes, and extend the analysis to spin, gating, or thermoelectric properties as needed.
 
 ### Tips and troubleshooting
 
@@ -220,7 +177,7 @@ The qBraid environment ships with the full set of official NanoDCAL tutorials as
 
 ---
 
-## <img src="images/logos/latticemind_logo.svg" alt="LatticeMind Logo" style="width: 150px;"><a id="latticemind"></a>
+## <img src="images/logos/latticemind_logo.svg" alt="LatticeMind Logo" width="150"><a id="latticemind"></a>
 
 Agentic AI for First-Principles Simulation
 
@@ -275,14 +232,15 @@ ionic crystals, oxides, metals, and 2D/layered systems).
 
 ### Setting up Latticemind on Nanoacademic's lab on QBraid platform
 
-1. **Launch the environment.** Open the Nanoacademic environment on qBraid. LatticeMind is pre-installed, so there is nothing to set up.
-2. **Add your AI provider key.** Open **Vault**, add your OpenAI API key, and make sure `OPENAI_API_KEY` is set. (Claude, Gemini, Qwen, and local models are also supported; set `RESCU_LLM_PROVIDER` and the matching key to switch.)
+After completing [Quick Start](#quick-start), configure the AI provider key for LatticeMind. LatticeMind is already installed in the Nanoacademic Lab.
+
+1. **Add your AI provider key.** Open **Vault**, add your OpenAI API key, and make sure `OPENAI_API_KEY` is set. (Claude, Gemini, Qwen, and local models are also supported; set `RESCU_LLM_PROVIDER` and the matching key to switch.)
 
 <img src="images/api-keys.png" alt="OpenAI API keys" width="550">
 
 <img src="images/openai-token.png" alt="OpenAI Token" width="550">
 
-3. **Start LatticeMind.** In the terminal, run `latticemind` for the interactive assistant, or launch the web interface through the qBraid proxy:
+2. **Start LatticeMind.** In the terminal, run `latticemind` for the interactive assistant, or launch the web interface through the qBraid proxy:
 
    ```bash
    latticemind-web --host 0.0.0.0 --port 7865 --no-open
@@ -292,7 +250,7 @@ ionic crystals, oxides, metals, and 2D/layered systems).
 
    The final slash matters. If you open `<notebook-base>/proxy/7865` without the trailing `/`, the LatticeMind dashboard can appear as plain HTML instead of the styled web interface.
 
-4. **Try a prompt:**
+3. **Try a prompt:**
 
    > Build a two-step silicon workflow: SCF with a saved density, then DOS from that density.
 
@@ -301,6 +259,39 @@ ionic crystals, oxides, metals, and 2D/layered systems).
    > Set up a Γ-point DFPT phonon workflow for fcc aluminum: SCF, then the DFPT phonon step using the saved density.
 
    Type `/examples` for more validated starter prompts, or `/commands` to explore everything LatticeMind can do.
+
+---
+## Quick Start
+
+### 1. Launch the Nanoacademic Lab
+
+In the [qBraid dashboard](https://www.qbraid.com/), go to **On-demand**, then launch the Nanoacademic Lab.
+
+<img src="images/dashboard.png" alt="qBraid dashboard" width="550">
+
+### 2. Add Product Licenses
+
+RESCU and NanoDCAL require valid Nanoacademic licenses.
+
+1. Create an account at [portal.nanoacademic.com](https://portal.nanoacademic.com/).
+2. Activate the licenses for the products you want to use.
+3. Import the licenses through qBraid Vault or the `nano-cli` command-line tool.
+
+To use qBraid Vault:
+
+1. Launch the Nanoacademic environment.
+2. Open **Vault** from the profile menu.
+
+<img src="images/to-vault.png" alt="Open vault" width="550">
+
+3. Connect your Nanoacademic account.
+
+<img src="images/vault1.png" alt="Connect Nanoacademic" width="550">
+
+4. Add or import the required RESCU and NanoDCAL licenses.
+
+<img src="images/license.png" alt="Import licenses" width="550">
+
 
 ---
 
