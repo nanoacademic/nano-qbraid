@@ -298,7 +298,7 @@ ionic crystals, oxides, metals, and 2D/layered systems).
 
    > Create a two-step zinc-blende GaAs workflow: SCF with a saved density, then a band structure along the standard FCC path.
 
-   > Set up a Γ-point DFPT phonon workflow for fcc aluminum: SCF, then the DFPT phonon step using the saved density.
+   > Create a spin-polarized workflow for bcc iron: first a collinear spin SCF calculation, then a DOS calculation using the saved density. Use a reasonable initial magnetic setup for Fe.
 
    Type `/examples` for more validated starter prompts, or `/commands` to explore everything LatticeMind can do.
 
