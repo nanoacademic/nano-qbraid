@@ -10,7 +10,7 @@ Lab launch and license setup are covered once in [Quick Start](#quick-start).
 
 ---
 
-## <img src="images/logos/rescu4_cmjn.svg" alt="RESCU Logo" width="150"><a id="rescu"></a>
+## <img src="images/logos/rescu_cmjn.svg" alt="RESCU Logo" width="150"><a id="rescu"></a>
 
 Large-Scale Density Functional Theory
 
