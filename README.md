@@ -271,7 +271,7 @@ In the [qBraid dashboard](https://www.qbraid.com/), go to **On-demand**, then la
 
 ### 2. Add Product Licenses
 
-RESCU and NanoDCAL require valid Nanoacademic licenses.
+LatticeMind, RESCU and NanoDCAL require valid Nanoacademic licenses.
 
 1. Create an account at [portal.nanoacademic.com](https://portal.nanoacademic.com/).
 2. Activate the licenses for the products you want to use.
@@ -288,7 +288,7 @@ To use qBraid Vault:
 
 <img src="images/vault1.png" alt="Connect Nanoacademic" width="550">
 
-4. Add or import the required RESCU and NanoDCAL licenses.
+4. Add or import the required LatticeMind, RESCU and NanoDCAL licenses (or use the `nano-cli` commanline tool available in the terminal)
 
 <img src="images/license.png" alt="Import licenses" width="550">
 
