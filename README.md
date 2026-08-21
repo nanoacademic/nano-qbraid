@@ -6,7 +6,7 @@
 - **[NanoDCAL](#nanodcal):** first-principles quantum transport with NEGF-DFT.
 - **[LatticeMind](#latticemind):** an agentic AI assistant for building and validating RESCU workflows.
 
-Lab launch and license setup are covered once in [Quick Start](#quick-start).
+New here? The [Quick Start](#quick-start) walks you, step by step and with screenshots, from an empty qBraid account to your first calculation.
 
 ---
 
@@ -17,7 +17,7 @@ Large-Scale Density Functional Theory
 
 > A real-space Density Functional Theory (DFT) solver built to reach the length scales where realistic materials physics actually happens, from a single molecule to tens of thousands of atoms.
 
-Welcome to RESCU on qBraid. This page gives you a quick sense of what RESCU can do, walks you through the bundled examples, and gets you to your first calculation in a few clicks. The software and all example notebooks are pre-installed in the qBraid environment, so there is nothing to set up.
+Welcome to RESCU on qBraid. This page gives you a quick sense of what RESCU can do and walks you through the bundled examples. The software and its example notebooks ship with the Nanoacademic environment, so once you have followed the [Quick Start](#quick-start) there is nothing left to install.
 
 ### Overview
 
@@ -108,7 +108,7 @@ Quantum Transport from First Principles
 
 > A quantum transport simulator that predicts how electrons flow through a device, from a single molecule between two electrodes to a sub-nanometer transistor, directly from first principles.
 
-Welcome to NanoDCAL on qBraid. This page introduces what NanoDCAL computes, walks you through the bundled device examples, and gets you to your first transport calculation in a few clicks. The software and all example notebooks are pre-installed in the qBraid environment, so there is nothing to set up.
+Welcome to NanoDCAL on qBraid. This page introduces what NanoDCAL computes and walks you through the bundled device examples. The software and its example notebooks ship with the Nanoacademic environment, so once you have followed the [Quick Start](#quick-start) there is nothing left to install.
 
 ### Overview
 
@@ -184,7 +184,7 @@ Agentic AI for First-Principles Simulation
 
 > Describe the calculation you want in plain language, and LatticeMind designs, validates, and runs the workflow for you, turning a one-sentence request into solver-ready RESCU inputs and results.
 
-Welcome to LatticeMind on qBraid. LatticeMind is Nanoacademic's agentic AI assistant for atomistic simulation. It comes pre-installed in the Nanoacademic qBraid environment and can dispatch the RESCU calculations it builds to the CPU/GPU resources of qBraid Labs.
+Welcome to LatticeMind on qBraid. LatticeMind is Nanoacademic's agentic AI assistant for atomistic simulation. It ships with the Nanoacademic qBraid environment and can dispatch the RESCU calculations it builds to the CPU/GPU resources of qBraid Labs.
 
 ### Overview
 
@@ -230,27 +230,28 @@ ionic crystals, oxides, metals, and 2D/layered systems).
 6. **Post-process and report.** It extracts results, produces standard plots, and assembles a report.
 7. **Recover.** If a step fails, it diagnoses and repairs rather than failing silently.
 
-### Setting up Latticemind on Nanoacademic's lab on QBraid platform
+### Getting started on qBraid
 
-After completing [Quick Start](#quick-start), configure the AI provider key for LatticeMind. LatticeMind is already installed in the Nanoacademic Lab.
+The [Quick Start](#quick-start) leaves you with LatticeMind installed, licensed, and pointed at an AI provider. From there, three short steps get you to your first workflow.
 
-1. **Add your AI provider key.** Open **Vault**, add your OpenAI API key, and make sure `OPENAI_API_KEY` is set. (Claude, Gemini, Qwen, and local models are also supported; set `RESCU_LLM_PROVIDER` and the matching key to switch.)
-
-<img src="images/api-keys.png" alt="OpenAI API keys" width="550">
-
-<img src="images/openai-token.png" alt="OpenAI Token" width="550">
-
-2. **Start LatticeMind.** In the terminal, run `latticemind` for the interactive assistant, or launch the web interface through the qBraid proxy:
+1. **Create a project folder.** LatticeMind organizes work by project and will politely decline to run in your home directory, so give each calculation a home of its own:
 
    ```bash
-   latticemind-web --host 0.0.0.0 --port 7865 --no-open
+   mkdir -p ~/latticemind_projects/si_scf
+   cd ~/latticemind_projects/si_scf
    ```
 
-   Open the qBraid proxy URL with this form: `<notebook-base>/proxy/<port>/`. For the command above, the port is `7865`, so the URL should end with `/proxy/7865/`.
+2. **Start LatticeMind.** Run `latticemind` for the interactive terminal assistant. For the web interface, type `/web` once you are inside, or launch it directly through the qBraid proxy:
 
-   The final slash matters. If you open `<notebook-base>/proxy/7865` without the trailing `/`, the LatticeMind dashboard can appear as plain HTML instead of the styled web interface.
+   ```bash
+   latticemind-web
+   ```
 
-3. **Try a prompt:**
+   Then open the qBraid proxy URL, which has the form `<notebook-base>/proxy/<port>/`. The default port is `7865`, so the URL should end with `/proxy/7865/`.
+
+   The final slash matters. If you open `<notebook-base>/proxy/7865` without it, the LatticeMind dashboard can appear as unstyled plain HTML rather than the full web interface.
+
+3. **Try a prompt.** Describe the calculation you want in plain language:
 
    > Build a two-step silicon workflow: SCF with a saved density, then DOS from that density.
 
@@ -258,40 +259,199 @@ After completing [Quick Start](#quick-start), configure the AI provider key for 
 
    > Create a spin-polarized workflow for bcc iron: first a collinear spin SCF calculation, then a DOS calculation using the saved density. Use a reasonable initial magnetic setup for Fe.
 
-   Type `/examples` for more validated starter prompts, or `/commands` to explore everything LatticeMind can do.
+   Type `/examples` for more validated starter prompts, `/commands` to browse everything LatticeMind can do, or `/help <topic>` when you want an explanation of a particular command.
+
+### Choosing an AI provider<a id="choosing-an-ai-provider"></a>
+
+The simplest route is an OpenAI key. Set it once through `nano-cli` (**Set OpenAI API Key**, as in Step 10 of the [Quick Start](#quick-start)), or export it yourself:
+
+```bash
+export OPENAI_API_KEY="sk-..."
+```
+
+Claude, Gemini, Qwen, and local models are supported as well. To switch, set `RESCU_LLM_PROVIDER` along with the matching API key for that provider.
+
+### Keeping LatticeMind up to date
+
+LatticeMind ships with the Nanoacademic environment, and new releases arrive regularly. To pull the latest version yourself, activate the environment and install from the Nanoacademic package index:
+
+```bash
+pip install --index-url https://pypi.nanoacademic.ca/simple/ --extra-index-url https://pypi.org/simple/ lattice-mind
+```
+
+Add `--upgrade` if LatticeMind is already installed and you want to move it to the newest release. The `--extra-index-url` is there so that ordinary dependencies still resolve from PyPI, so please keep both flags in place.
+
+### Documentation and resources
+
+- Official LatticeMind documentation: https://docs.nanoacademic.com/latticemind/
+- RESCU documentation (the solver LatticeMind targets): https://docs.nanoacademic.com/rescu/
+- Nanoacademic Technologies: https://nanoacademic.com/
 
 ---
+
 ## Quick Start
 
-### 1. Launch the Nanoacademic Lab
+This walkthrough takes you from a fresh qBraid account to a working Nanoacademic setup, with RESCU, NanoDCAL, and LatticeMind ready to run. 
 
-In the [qBraid dashboard](https://www.qbraid.com/), go to **On-demand**, then launch the Nanoacademic Lab.
+**Before you begin, it helps to have:**
 
-<img src="images/dashboard.png" alt="qBraid dashboard" width="550">
+- A [qBraid](https://www.qbraid.com/) account.
+- A Nanoacademic account at [portal.nanoacademic.com](https://portal.nanoacademic.com/), with licenses activated for the products you plan to use. RESCU, NanoDCAL, and LatticeMind are licensed separately.
+- Optionally, an OpenAI API key, if you would like to use LatticeMind (Step 10).
 
-### 2. Add Product Licenses
+### Step 1. Launch a qBraid Lab instance
 
-LatticeMind, RESCU and NanoDCAL require valid Nanoacademic licenses.
+Sign in to the [qBraid dashboard](https://www.qbraid.com/) and find the **Launch qBraid Lab** panel. Pick the **Subscription** or **On-Demand** tab depending on your plan, then press **Launch** next to a profile. **Small (2 vCPU, 4 GB)** is plenty for this guide and for working through the tutorial notebooks.
 
-1. Create an account at [portal.nanoacademic.com](https://portal.nanoacademic.com/).
-2. Activate the licenses for the products you want to use.
-3. Import the licenses through qBraid Vault or the `nano-cli` command-line tool.
+<img src="images/setup-1-launch-instance.png" alt="Launching a qBraid Lab instance" width="650">
 
-To use qBraid Vault:
+JupyterLab opens in a new tab. That is your Lab, and everything that follows happens inside it.
 
-1. Launch the Nanoacademic environment.
-2. Open **Vault** from the profile menu.
+> **A note on sizing.** DFT is memory-hungry. Small is a good place to learn, but move up to Medium or Large once you start running production calculations.
 
-<img src="images/to-vault.png" alt="Open vault" width="550">
+### Step 2. Open the Environments panel
 
-3. Connect your Nanoacademic account.
+In qBraid Lab, open the **ENVIRONMENTS** panel from the icons at the top right (the stacked-layers icon), then click **+ ADD**.
 
-<img src="images/vault1.png" alt="Connect Nanoacademic" width="550">
+<img src="images/setup-2-add-env.png" alt="The ENVIRONMENTS panel with the ADD button" width="500">
 
-4. Add or import the required LatticeMind, RESCU and NanoDCAL licenses (or use the `nano-cli` commanline tool available in the terminal)
+### Step 3. Find the Nanoacademic environment
 
-<img src="images/license.png" alt="Import licenses" width="550">
+Under **BROWSE ENVIRONMENTS**, type `nanoacademic` into the search box. **Nanoacademic** appears under **SHARED ENVIRONMENTS**. Select it.
 
+<img src="images/setup-3-add-env.png" alt="Searching for the Nanoacademic shared environment" width="450">
+
+
+### Step 4. Install it
+
+Leave **Platform** on **Linux**, confirm the **Latest** tag, and click **Install**. This single environment carries RESCU, NanoDCAL, and LatticeMind, together with around a hundred supporting Python packages on Python 3.12.
+
+<img src="images/setup-4-add-env.png" alt="Installing the Nanoacademic environment" width="450">
+
+The install runs in the background and takes a few minutes. Feel free to keep working; the panel tracks progress and marks the environment as installed when it finishes.
+
+### Step 5. Open a notebook on the Nanoacademic kernel
+
+Go back to the **Launcher** tab. Under **NOTEBOOK** there is now a **Python 3 [nanoacademic]** kernel. Click it to open a notebook backed by the environment you just installed.
+
+<img src="images/setup-5-python.png" alt="The Python 3 [nanoacademic] kernel in the Launcher" width="600">
+
+If the kernel is not there yet, the install is most likely still finishing. Give it a moment and reload the page.
+
+### Step 6. Confirm you are on the right kernel
+
+A quick sanity check saves confusion later. Run this in the first cell:
+
+```python
+import sys
+print(sys.executable)
+```
+
+You should see a path inside the Nanoacademic environment, along the lines of:
+
+```
+/home/jovyan/.qbraid/environments/nanoac_n7w1/pyenv/bin/python
+```
+
+<img src="images/setup-6-python.png" alt="Verifying the active Python interpreter" width="650">
+
+The `nanoac_n7w1` piece is a short identifier unique to your installation, so yours will differ. Keep the path nearby, as the next step uses it.
+
+### Step 7. Activate the environment in a terminal
+
+RESCU, NanoDCAL, LatticeMind, and the `nano-cli` license tool are command-line programs, so the remaining setup happens in a terminal. Open one from the Launcher, under **OTHER → Terminal**, then activate the environment:
+
+```bash
+source ~/.qbraid/environments/nanoac_*/pyenv/bin/activate
+```
+
+The `*` saves you from typing the identifier; you can also paste the full path from Step 6. Your prompt picks up a `(nanoacademic)` prefix, which is how you know the environment is active.
+
+<img src="images/setup-7-activate.png" alt="Activating the Nanoacademic environment in a terminal" width="700">
+
+> A terminal does not remember this between sessions. Run the `source` command each time you open a new one, or add it to the end of your `~/.bashrc` if you would rather not think about it again.
+
+### Step 8. Install the MATLAB Runtime
+
+RESCU and NanoDCAL are compiled applications that need the MathWorks MATLAB Runtime R2020a. `nano-cli` fetches and installs it for you:
+
+```bash
+nano-cli runtime install
+```
+
+The runtime is about a 2.8 GB download and roughly 6 GB once installed, landing in `~/.local/share/nanoacademic/matlab-runtime`. It is licensed by MathWorks rather than by Nanoacademic, so you are asked to accept [their licence terms](https://www.mathworks.com/products/compiler/matlab-runtime.html) before anything is downloaded. Answer `y` to continue.
+
+<img src="images/setup-8-runtime.png" alt="Installing the MATLAB Runtime with nano-cli" width="650">
+
+This is a one-time step for the Lab, and a good moment for a coffee. LatticeMind itself does not need the runtime, but the RESCU calculations it launches do.
+
+### Step 9. Sign in and download your licenses
+
+Run `nano-cli` with no arguments to open the interactive menu, choose **Login**, and enter the email and password for your [portal.nanoacademic.com](https://portal.nanoacademic.com/) account. Move around the menu with the arrow keys and select with Enter.
+
+<img src="images/setup-9-nano-cli.png" alt="Logging in with nano-cli" width="450">
+
+Once you are signed in, choose **Download License** and pick a product: **RESCU**, **NanoDCAL**, or **LatticeMind**. Repeat for each product you have licensed.
+
+<img src="images/setup-10-nano-cli-licenses.png" alt="Choosing a product to license" width="320">
+
+**Show License Path** will tell you where a license file was written, which is handy if you ever need to check or move one.
+
+### Step 10. Add an OpenAI API key (optional, for LatticeMind)
+
+This step matters only if you plan to use LatticeMind. From the same `nano-cli` menu, choose **Set OpenAI API Key** and paste your key at the prompt. It is stored for you, so this is a one-time task.
+
+<img src="images/setup-10-optional-openai-api-key.png" alt="Setting the OpenAI API key with nano-cli" width="320">
+
+LatticeMind also works with Claude, Gemini, Qwen, and local models; see [Choosing an AI provider](#choosing-an-ai-provider) in the LatticeMind section if you would rather use one of those. RESCU and NanoDCAL need no AI provider at all, so you can skip this step entirely if LatticeMind is not part of your plans.
+
+### Step 11. Check that RESCU runs
+
+Back at the shell, with the environment still active, run `rescu` with no arguments. Seeing the help text means the binary, the MATLAB Runtime, and your license are all in place:
+
+```bash
+rescu
+```
+
+<img src="images/setup-11-rescu.png" alt="RESCU printing its on-line help" width="600">
+
+From here, `rescu --flag` lists the command-line flags, `rescu --parameter` lists every input parameter, `rescu --parameter ? atom` searches parameter names for a string, and `rescu --basis` shows the available atomic-orbital bases. `nanodcal` behaves the same way, so give it a try too if you licensed it.
+
+### Step 12. Say hello to LatticeMind
+
+If you licensed LatticeMind and set an API key, you are ready to start it. LatticeMind keeps each calculation in its own project folder and will politely decline to run directly in your home directory, so make a folder first:
+
+```bash
+mkdir -p ~/latticemind_projects/si_scf
+cd ~/latticemind_projects/si_scf
+latticemind
+```
+
+<img src="images/setup-12-latticemind.png" alt="The LatticeMind welcome screen" width="700">
+
+At the `LatticeMind >` prompt, simply describe what you want in plain language, for example:
+
+> Do an SCF and band structure for silicon.
+
+Type `/examples` for ready-to-run starter prompts, `/commands` to browse everything LatticeMind can do, or `/web` to open the web interface.
+
+### You are all set
+
+Your Lab now has all three products installed, licensed, and verified. Where to go next:
+
+| If you want to | Go to |
+| --- | --- |
+| Run large-scale DFT on materials | [RESCU](#rescu) |
+| Simulate quantum transport through a device | [NanoDCAL](#nanodcal) |
+| Describe a calculation in plain language and let AI build it | [LatticeMind](#latticemind) |
+
+A few things worth remembering:
+
+- **Re-activate in each new terminal.** Every terminal needs the `source .../activate` command from Step 7.
+- **The runtime and licenses persist.** Steps 8 through 10 are one-time per Lab, not per session.
+- **Notebooks need the right kernel.** Use **Python 3 [nanoacademic]** rather than the default **Python 3 (ipykernel)**, or the Nanoacademic packages will not be importable.
+
+Something not working as described? We are always glad to help at [support@nanoacademic.com](mailto:support@nanoacademic.com).
 
 ---
 
@@ -301,6 +461,7 @@ To use qBraid Vault:
 - [Nanoacademic Docs](https://docs.nanoacademic.com/)
 - [RESCU Docs](https://docs.nanoacademic.com/rescu/)
 - [NanoDCAL Docs](https://docs.nanoacademic.com/nanodcal/)
+- [LatticeMind Docs](https://docs.nanoacademic.com/latticemind/)
 
 ## About Nanoacademic
 
